@@ -1,5 +1,6 @@
 from logica import *
 from Tkinter import *
+from time import sleep
 
 log = logica()
 
@@ -12,10 +13,30 @@ miCanvas.create_line(100, 500, 500, 500)
 miCanvas.create_line(500, 500, 300, 500 - ((400**2 - 200**2)**(0.5)))
 miCanvas.create_line(300, 600 - ((400**2 - 200**2)**(0.5))-100,100,500)
 poligono = [(100,500),(500,500),(300, 600 - ((400**2 - 200**2)**(0.5))-100)]
-punto = log.generaCoorInicial(poligono)
-circulo = miCanvas.create_oval(punto[0], punto[1], punto[0]+5, punto[1]+5, fill='black')
-y = 500 - ((400**2 - 200**2)**(0.5))
 
-miCanvas.create_line(punto[0]+2.5,punto[1]+2.5,300,500 - ((400**2 - 200**2)**(0.5)), fill='blue')
-miCanvas.create_oval(((300+punto[0])/2)-2.5,((punto[1]+y)/2)+2.55,((300+punto[0])/2)+2.55,((punto[1]+y)/2)-2.5, fill='blue')
+	
+
+
+
+
+p0 = log.generaCoorInicial(poligono)
+v = poligono[log.verticeAleatorio()]
+pm = log.puntoMedio(v[0],v[1],p0[0],p0[1])
+miCanvas.create_oval(pm[0]-2.5,pm[1]+2.5,pm[0]+2.5,pm[1]-2.5, fill='black')
+
+cont = 0
+while cont < 1000:
+	v = poligono[log.verticeAleatorio()]
+	pm = log.puntoMedio(v[0],v[1],pm[0],pm[1])
+	miCanvas.create_oval(pm[0]-2.5,pm[1]+2.5,pm[0]+2.5,pm[1]-2.5, fill='blue')
+	cont = cont + 1
+	
 mainloop()
+
+
+	
+
+
+
+
+
