@@ -6,16 +6,14 @@ class logica:
 	def generaCoorInicial(self, poligono):
 		puntoAdentro = False
 		while(puntoAdentro==False):
-			h = int(500 - ((400**2 - 200**2)**(0.5)))
+			h = int(((400**2 - 200**2)**(0.5)))
 			y = randint(500-h,500)
 			x = randint(100,500)
 			puntoAdentro = self.puntoEnPoligono(x,y,poligono)
 		return x,y
 			
 
-		
-
-	#Verifica si el punto está dentro del poligono
+	
 	def puntoEnPoligono(self,x,y,poligono):
 		puntoAdentro = False
 		i = 0
@@ -26,6 +24,14 @@ class logica:
 			 		puntoAdentro = not puntoAdentro
 			 j = i
 		return puntoAdentro
+
+	def verticeAleatorio(self):
+		return randint(0,2)
+
+	def puntoMedio(self,xv,yv,xp,yp):
+		x = (xv + xp)/2
+		y = (yv + yp)/2
+		return x,y
 
 
 	
