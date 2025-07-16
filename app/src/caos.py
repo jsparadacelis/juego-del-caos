@@ -3,7 +3,6 @@ from services import Polygon, generate_initial_point, get_random_vertix, mid_poi
 from tkinter import Tk, Canvas
 
 
-
 def setup_canvas() -> Tuple[Tk, Canvas]:
     _master = Tk()
     _canvas = Canvas(_master, width=600, height=600)
