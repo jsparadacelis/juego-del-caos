@@ -43,7 +43,7 @@ def generate_initial_point(poligono: Polygon) -> Point:
         y = randint(500 - h, 500)
         x = randint(100, 500)
         puntoAdentro = poligono.is_inside(Point(x, y))
-    return x, y
+    return Point(x, y)
 
 
 

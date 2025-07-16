@@ -1,7 +1,7 @@
 from typing import Tuple
 from services import Polygon, generate_initial_point, get_random_vertix, mid_point
-from tkinter import *
-from time import sleep
+from tkinter import Tk, Canvas
+
 
 
 def setup_canvas() -> Tuple[Tk, Canvas]:
@@ -39,13 +39,14 @@ def main() -> None:
     p0 = generate_initial_point(poligono)
     random_vertex = get_random_vertix()
     v = poligono.get_vertex(random_vertex)
-    pm = mid_point(v[0], v[1], p0[0], p0[1])
+    pm = mid_point(v.x, v.y, p0.x, p0.y)
     canvas.create_oval(pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="black")
 
     cont = 0
     while cont < 1000:
-        v = poligono[get_random_vertix()]
-        pm = mid_point(v[0], v[1], pm[0], pm[1])
+        random_vertex = get_random_vertix()
+        v = poligono.get_vertex(random_vertex)
+        pm = mid_point(v.x, v.y, pm[0], pm[1])
         canvas.create_oval(
             pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="blue"
         )
