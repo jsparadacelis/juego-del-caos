@@ -30,7 +30,7 @@ def main() -> None:
             pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="blue"
         )
         cont = cont + 1
-
+    master.mainloop()
 
 if __name__ == "__main__":
     main()
