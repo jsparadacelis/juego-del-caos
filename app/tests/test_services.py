@@ -27,3 +27,12 @@ class TestServices:
         assert polygon.vertices[1] == Point(5, 0)
         assert polygon.vertices[2] == Point(5, 5)
         assert polygon.vertices[3] == Point(0, 5)
+
+    def test_should_get_a_vertex_from_polygon(self):
+        vertices = [(0, 0), (5, 0), (5, 5), (0, 5)]
+        polygon = Polygon.create_from_list(vertices)
+
+        vertex = polygon.get_vertex(0)
+
+        assert vertex in polygon.vertices
+        assert isinstance(vertex, Point)

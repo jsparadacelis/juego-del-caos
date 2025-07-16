@@ -1,5 +1,5 @@
 from typing import Tuple
-from services import generate_initial_point, get_random_vertix, mid_point
+from services import Polygon, generate_initial_point, get_random_vertix, mid_point
 from tkinter import *
 from time import sleep
 
@@ -34,6 +34,7 @@ def main() -> None:
     add_triangle_to_canvas(canvas)
 
     vertices = [(100, 500), (500, 500), (300, 600 - ((400**2 - 200**2) ** (0.5)) - 100)]
+    poligono = Polygon.create_from_list(vertices)
 
     p0 = generate_initial_point(poligono)
     v = poligono[get_random_vertix()]
