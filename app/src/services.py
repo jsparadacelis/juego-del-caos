@@ -29,6 +29,12 @@ class Polygon:
     def create_from_list(cls, vertices: list[tuple[int, int]]) -> "Polygon":
         return cls(vertices=[Point(x, y) for x, y in vertices])
 
+    def get_vertex(self, index: int) -> Point:        
+        if 0 <= index < len(self.vertices):
+            return self.vertices[index]
+
+        raise IndexError("Vertex index out of range")
+
 
 def generate_initial_point(poligono: Polygon) -> Point:
     puntoAdentro = False

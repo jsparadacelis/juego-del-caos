@@ -37,7 +37,8 @@ def main() -> None:
     poligono = Polygon.create_from_list(vertices)
 
     p0 = generate_initial_point(poligono)
-    v = poligono[get_random_vertix()]
+    random_vertex = get_random_vertix()
+    v = poligono.get_vertex(random_vertex)
     pm = mid_point(v[0], v[1], p0[0], p0[1])
     canvas.create_oval(pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="black")
 
