@@ -1,4 +1,4 @@
-from src.logica import Polygon, Point
+from src.services import Polygon, Point
 
 
 class TestServices:
