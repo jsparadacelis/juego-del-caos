@@ -24,9 +24,10 @@ class Polygon:
                (point.x < (v2.x - v1.x) * (point.y - v1.y) / (v2.y - v1.y) + v1.x):
                 count += 1
         return count % 2 == 1
-
+    
+    @classmethod
     def create_from_list(cls, vertices: list[tuple[int, int]]) -> "Polygon":
-        return None
+        return cls(vertices=[Point(x, y) for x, y in vertices])
 
 
 def generate_initial_point(poligono: Polygon) -> Point:
