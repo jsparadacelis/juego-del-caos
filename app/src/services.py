@@ -25,10 +25,11 @@ class Polygon:
                 count += 1
         return count % 2 == 1
 
+    def create_from_list(cls, vertices: list[tuple[int, int]]) -> "Polygon":
+        return None
 
 
-
-def generate_initial_coordinate(poligono):
+def generate_initial_point(poligono: Polygon) -> Point:
     puntoAdentro = False
     while not puntoAdentro:
         h = int(((400**2 - 200**2) ** (0.5)))

@@ -17,3 +17,13 @@ class TestServices:
         is_inside = polygon.is_inside(Point(6, 6))
 
         assert not is_inside
+    
+    def test_should_create_polygon_from_list_of_tuples(self):
+        vertices = [(0, 0), (5, 0), (5, 5), (0, 5)]
+        polygon = Polygon.create_from_list(vertices)
+
+        assert len(polygon.vertices) == 4
+        assert polygon.vertices[0] == Point(0, 0)
+        assert polygon.vertices[1] == Point(5, 0)
+        assert polygon.vertices[2] == Point(5, 5)
+        assert polygon.vertices[3] == Point(0, 5)

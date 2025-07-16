@@ -1,5 +1,5 @@
 from typing import Tuple
-from app.src.logica import *
+from services import generate_initial_point, get_random_vertix, mid_point
 from tkinter import *
 from time import sleep
 
@@ -33,9 +33,9 @@ def main() -> None:
 
     add_triangle_to_canvas(canvas)
 
-    poligono = [(100, 500), (500, 500), (300, 600 - ((400**2 - 200**2) ** (0.5)) - 100)]
+    vertices = [(100, 500), (500, 500), (300, 600 - ((400**2 - 200**2) ** (0.5)) - 100)]
 
-    p0 = generate_initial_coordinate(poligono)
+    p0 = generate_initial_point(poligono)
     v = poligono[get_random_vertix()]
     pm = mid_point(v[0], v[1], p0[0], p0[1])
     canvas.create_oval(pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="black")
