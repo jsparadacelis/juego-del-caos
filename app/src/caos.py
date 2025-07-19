@@ -39,15 +39,15 @@ def main() -> None:
     random_vertex = get_random_vertix()
     v = poligono.get_vertex(random_vertex)
     pm = mid_point(v.x, v.y, p0.x, p0.y)
-    canvas.create_oval(pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="black")
+    canvas.create_oval(pm.x - 2.5, pm.y + 2.5, pm.x + 2.5, pm.y - 2.5, fill="black")
 
     cont = 0
     while cont < 1000:
         random_vertex = get_random_vertix()
         v = poligono.get_vertex(random_vertex)
-        pm = mid_point(v.x, v.y, pm[0], pm[1])
+        pm = mid_point(v.x, v.y, pm.x, pm.y)
         canvas.create_oval(
-            pm[0] - 2.5, pm[1] + 2.5, pm[0] + 2.5, pm[1] - 2.5, fill="blue"
+            pm.x - 2.5, pm.y + 2.5, pm.x + 2.5, pm.y - 2.5, fill="blue"
         )
         cont = cont + 1
     master.mainloop()
