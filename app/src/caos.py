@@ -9,7 +9,7 @@ def setup_canvas(width: int = 600, height: int = 600) -> Tuple[Tk, Canvas]:
     _canvas.pack()
 
     _canvas.create_rectangle(0, 0, width, width, fill="white")
-    _canvas.create_text(width/2, 20, text="Sierpinski", font=("Arial", 16))
+    _canvas.create_text(width / 2, 20, text="Sierpinski", font=("Arial", 16))
 
     return _master, _canvas
 
@@ -20,20 +20,27 @@ def add_triangle_to_canvas(canvas: Canvas, triangle: Triangle) -> None:
     third_vertex = triangle.vertices[2]
 
     canvas.create_line(
-        first_vertex.x, first_vertex.y,
-        second_vertex.x, second_vertex.y,
+        first_vertex.x,
+        first_vertex.y,
+        second_vertex.x,
+        second_vertex.y,
         fill="black",
     )
     canvas.create_line(
-        second_vertex.x, second_vertex.y,
-        third_vertex.x, third_vertex.y,
+        second_vertex.x,
+        second_vertex.y,
+        third_vertex.x,
+        third_vertex.y,
         fill="black",
     )
     canvas.create_line(
-        third_vertex.x, third_vertex.y,
-        first_vertex.x, first_vertex.y,
+        third_vertex.x,
+        third_vertex.y,
+        first_vertex.x,
+        first_vertex.y,
         fill="black",
     )
+
 
 def add_point_to_canvas(canvas: Canvas, point: Point, color: str = "blue") -> None:
     canvas.create_oval(
