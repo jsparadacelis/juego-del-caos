@@ -37,16 +37,28 @@ def main() -> None:
 
     initial_point = triangle.generate_inside_point()
 
-    random_vertex = triangle.get_random_vertex() 
+    random_vertex = triangle.get_random_vertex()
     mid_point = initial_point.get_mid_point(random_vertex)
 
-    canvas.create_oval(mid_point.x - 2.5, mid_point.y + 2.5, mid_point.x + 2.5, mid_point.y - 2.5, fill="black")
+    canvas.create_oval(
+        mid_point.x - 2.5,
+        mid_point.y + 2.5,
+        mid_point.x + 2.5,
+        mid_point.y - 2.5,
+        fill="black",
+    )
 
     cont = 0
     while cont < 1e4:
         random_vertex = triangle.get_random_vertex()
         mid_point = mid_point.get_mid_point(random_vertex)
-        canvas.create_oval(mid_point.x - 2.5, mid_point.y + 2.5, mid_point.x + 2.5, mid_point.y - 2.5, fill="blue")
+        canvas.create_oval(
+            mid_point.x - 2.5,
+            mid_point.y + 2.5,
+            mid_point.x + 2.5,
+            mid_point.y - 2.5,
+            fill="blue",
+        )
         cont = cont + 1
     master.mainloop()
 

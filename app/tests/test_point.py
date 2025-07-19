@@ -1,7 +1,7 @@
 from app.src.triangle import Point
 
-class TestPoint:
 
+class TestPoint:
     def test_returns_mid_point_between_two_points(self):
         p1 = Point(0, 0)
         p2 = Point(2, 2)

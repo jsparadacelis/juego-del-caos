@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import random
 
+
 @dataclass
 class Point:
     x: float
@@ -9,9 +10,9 @@ class Point:
     def get_mid_point(self, other: "Point") -> "Point":
         return Point((self.x + other.x) / 2, (self.y + other.y) / 2)
 
+
 @dataclass
 class Triangle:
-
     vertices: list[Point]
 
     @classmethod
@@ -32,7 +33,7 @@ class Triangle:
         c = 1 - a - b
 
         return 0 <= a <= 1 and 0 <= b <= 1 and 0 <= c <= 1
-    
+
     def get_vertex(self, index: int) -> Point:
         if index < 0 or index >= len(self.vertices):
             raise IndexError("Vertex index out of range.")
