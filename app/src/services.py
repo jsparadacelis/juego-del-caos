@@ -51,7 +51,7 @@ def get_random_vertix():
     return randint(0, 2)
 
 
-def mid_point(xv, yv, xp, yp):
-    x = (xv + xp) / 2
-    y = (yv + yp) / 2
-    return x, y
+def mid_point(xv, yv, xp, yp) -> Point:
+    x = (xv + xp) // 2
+    y = (yv + yp) // 2
+    return Point(x, y)
