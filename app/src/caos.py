@@ -1,5 +1,5 @@
 from typing import Tuple
-from services import Polygon, generate_initial_point, get_random_vertix, mid_point
+from triangle import Triangle
 from tkinter import Tk, Canvas
 
 
@@ -33,22 +33,20 @@ def main() -> None:
     add_triangle_to_canvas(canvas)
 
     vertices = [(100, 500), (500, 500), (300, 600 - ((400**2 - 200**2) ** (0.5)) - 100)]
-    poligono = Polygon.create_from_list(vertices)
+    triangle = Triangle.create_from_list(vertices)
 
-    p0 = generate_initial_point(poligono)
-    random_vertex = get_random_vertix()
-    v = poligono.get_vertex(random_vertex)
-    pm = mid_point(v.x, v.y, p0.x, p0.y)
-    canvas.create_oval(pm.x - 2.5, pm.y + 2.5, pm.x + 2.5, pm.y - 2.5, fill="black")
+    initial_point = triangle.generate_inside_point()
+
+    random_vertex = triangle.get_random_vertex() 
+    mid_point = initial_point.get_mid_point(random_vertex)
+
+    canvas.create_oval(mid_point.x - 2.5, mid_point.y + 2.5, mid_point.x + 2.5, mid_point.y - 2.5, fill="black")
 
     cont = 0
-    while cont < 1000:
-        random_vertex = get_random_vertix()
-        v = poligono.get_vertex(random_vertex)
-        pm = mid_point(v.x, v.y, pm.x, pm.y)
-        canvas.create_oval(
-            pm.x - 2.5, pm.y + 2.5, pm.x + 2.5, pm.y - 2.5, fill="blue"
-        )
+    while cont < 1e4:
+        random_vertex = triangle.get_random_vertex()
+        mid_point = mid_point.get_mid_point(random_vertex)
+        canvas.create_oval(mid_point.x - 2.5, mid_point.y + 2.5, mid_point.x + 2.5, mid_point.y - 2.5, fill="blue")
         cont = cont + 1
     master.mainloop()
 
